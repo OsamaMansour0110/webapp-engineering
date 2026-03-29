@@ -39,20 +39,20 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div className="w-full max-w-[1780px] mx-auto px-4 md:px-10 mt-[80px] md:mt-[100px] mb-10 md:mb-20">
-      <div className="flex items-center justify-between gap-4 md:gap-10">
+    <div className="w-full mt-35 mb-8 md:mb-1">
+      <div className="flex items-center justify-between">
         
         {/* Left Arrow - External Position */}
         <button 
           onClick={prevSlide}
-          className="hidden lg:flex cursor-pointer transition-all hover:scale-110 active:scale-95 bg-slate-900 border border-white/10 p-5 rounded-full shadow-2xl group shrink-0"
+          className="hidden lg:flex cursor-pointer transition-all active:scale-95 bg-transparent hover:bg-gray-100 dark:hover:bg-white/10 backdrop-blur-md h-[500px] md:h-[650px] w-10 rounded-r-lg group shrink-0 items-center justify-center"
           aria-label="Previous Slide"
         >
-          <ChevronLeft className="w-8 h-8 text-white group-hover:text-primary transition-colors" />
+          <ChevronLeft className="w-10 h-10 text-gray-400 group-hover:text-primary transition-colors" />
         </button>
 
         {/* Framing Container */}
-        <div className="relative flex-1 h-[500px] md:h-[680px] overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl border-4 border-white/10 group">
+        <div className="relative flex-1 h-[500px] md:h-[650px] overflow-hidden rounded-lg border border-white/10 group">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -81,13 +81,13 @@ export default function HeroCarousel() {
               initial={{ x: -40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="bg-black/60 backdrop-blur-xl p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] max-w-2xl w-full border border-white/10 shadow-2xl"
+              className="bg-black/60 backdrop-blur-xl p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] max-w-3xl w-full border border-white/10"
             >
               <h2 className="text-3xl md:text-5xl font-serif font-bold mb-3 md:mb-4 text-primary leading-tight">
                 {slides[current].title}
               </h2>
               
-              <div className="w-20 md:w-32 h-[2px] bg-primary/60 mb-6 md:mb-10" />
+              <div className="w-20 md:w-32 h-[2px] bg-primary/60 mb-4 md:mb-8" />
               
               <div className="space-y-4 md:space-y-6 text-white leading-relaxed text-base md:text-xl">
                 <p className="font-semibold text-white/95">{slides[current].content}</p>
@@ -102,20 +102,20 @@ export default function HeroCarousel() {
         {/* Right Arrow - External Position */}
         <button 
           onClick={nextSlide}
-          className="hidden lg:flex cursor-pointer transition-all hover:scale-110 active:scale-95 bg-slate-900 border border-white/10 p-5 rounded-full shadow-2xl group shrink-0"
+          className="hidden lg:flex cursor-pointer transition-all active:scale-95 bg-transparent hover:bg-gray-100 dark:hover:bg-white/10 backdrop-blur-md h-[500px] md:h-[650px] w-10 rounded-l-lg group shrink-0 items-center justify-center"
           aria-label="Next Slide"
         >
-          <ChevronRight className="w-8 h-8 text-white group-hover:text-primary transition-colors" />
+          <ChevronRight className="w-10 h-10 text-gray-400 group-hover:text-primary transition-colors" />
         </button>
       </div>
 
       {/* Mobile Arrows Placement */}
       <div className="flex lg:hidden justify-center gap-8 mt-10">
-        <button onClick={prevSlide} className="p-4 bg-slate-900 text-white rounded-full shadow-xl">
-          <ChevronLeft size={28} />
+        <button onClick={prevSlide} className="h-16 w-20 flex items-center justify-center bg-slate-900 text-white rounded-2xl shadow-xl">
+          <ChevronLeft size={32} />
         </button>
-        <button onClick={nextSlide} className="p-4 bg-slate-900 text-white rounded-full shadow-xl">
-          <ChevronRight size={28} />
+        <button onClick={nextSlide} className="h-16 w-20 flex items-center justify-center bg-slate-900 text-white rounded-2xl shadow-xl">
+          <ChevronRight size={32} />
         </button>
       </div>
     </div>

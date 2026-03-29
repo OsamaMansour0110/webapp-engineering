@@ -30,7 +30,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--foreground)]/5 px-4 md:px-10 h-[75px] flex items-center justify-between transition-all duration-500">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--foreground)]/5 px-4 md:px-10 h-[115px] flex items-center justify-between transition-all duration-500">
 
       {/* 1. Left: Brand */}
       <Link href="/" className="flex items-center gap-2 group z-10">
