@@ -1,0 +1,1 @@
+test content for power subdirectory creation.
