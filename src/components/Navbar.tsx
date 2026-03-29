@@ -69,28 +69,28 @@ export default function Navbar() {
       <div className="flex items-center gap-4 z-10">
         <div 
           onClick={() => setDarkMode(!darkMode)}
-          className={`relative w-[90px] h-[44px] rounded-full border-2 p-1 cursor-pointer transition-all duration-500 overflow-hidden shadow-sm ${
+          className={`relative w-[100px] h-[48px] rounded-full border-2 cursor-pointer transition-all duration-500 overflow-hidden shadow-md ${
             darkMode ? 'bg-zinc-900 border-white/10' : 'bg-white border-[#e8e4d9]'
           }`}
         >
-          {/* Mathematical Sliding Handle (Exactly half width minus padding) */}
+          {/* Absolute Sliding Handle - Matched to 25/75 anchors */}
           <motion.div
-            animate={{ x: darkMode ? 41 : 0 }}
-            transition={{ type: "spring", stiffness: 350, damping: 25 }}
-            className="absolute top-1 left-1 bottom-1 w-[41px] bg-primary rounded-full shadow-md z-0"
+            animate={{ x: darkMode ? 50 : 2 }}
+            transition={{ type: "spring", stiffness: 500, damping: 40 }}
+            className="absolute top-[2px] w-[44px] h-[40px] bg-primary rounded-full shadow-lg z-0"
           />
 
-          {/* Icons Layer with Perfect Flex Centering */}
-          <div className="relative z-10 h-full flex pointer-events-none">
+          {/* Icons Layer - Fixed at the 25% and 75% marks */}
+          <div className="relative z-10 h-full w-full flex pointer-events-none">
             <div className="flex-1 flex items-center justify-center">
               <Sun 
-                size={18} 
+                size={20} 
                 className={`transition-colors duration-300 ${!darkMode ? 'text-white' : 'text-slate-400'}`} 
               />
             </div>
             <div className="flex-1 flex items-center justify-center">
               <Moon 
-                size={18} 
+                size={20} 
                 className={`transition-colors duration-300 ${darkMode ? 'text-white' : 'text-black font-bold'}`} 
               />
             </div>

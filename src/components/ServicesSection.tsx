@@ -25,7 +25,7 @@ const services = [
 export default function ServicesSection() {
   return (
     <section className="py-20 px-6 container mx-auto">
-      <h2 className="text-5xl font-serif font-bold text-center mb-16 text-slate-800 dark:text-white tracking-widest uppercase transition-colors">Our Services</h2>
+      <h2 className="text-5xl font-serif font-bold text-center mb-16 text-[var(--foreground)] tracking-widest uppercase transition-colors">Our Services</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {services.map((service, index) => (
