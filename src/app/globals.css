@@ -68,3 +68,12 @@
 .card-hover:hover {
   @apply -translate-y-2 shadow-xl;
 }
+
+.shadow-premium {
+  box-shadow: 0 10px 40px -10px rgba(0, 51, 102, 0.12);
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-premium:hover {
+  box-shadow: 0 20px 60px -15px rgba(0, 51, 102, 0.2);
+}

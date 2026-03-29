@@ -1,15 +1,5 @@
-import SecondaryNavbar, { NavItem } from "@/components/SecondaryNavbar";
+import PowerSolutionsNavbar from "@/components/PowerSolutionsNavbar";
 import SecondaryFooter, { SocialLink, FooterLink } from "@/components/SecondaryFooter";
-
-const powerSolutionsNav: NavItem[] = [
-  { name: "Home", href: "/power-solutions" },
-  { name: "About Us", href: "/power-solutions/about" },
-  { name: "Products", href: "#", hasDropdown: true },
-  { name: "Our partners", href: "/power-solutions/partners" },
-  { name: "News", href: "/power-solutions/news" },
-  { name: "Careers", href: "/power-solutions/careers" },
-  { name: "Contact us", href: "/power-solutions/contact" },
-];
 
 const powerSolutionsFooterLinks: FooterLink[] = [
   { name: "About Us", href: "/power-solutions/about" },
@@ -33,15 +23,9 @@ export default function PowerSolutionsLayout({
 }) {
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <SecondaryNavbar 
-        logoSrc="/logo.png"
-        brandName="01 Electronics"
-        navItems={powerSolutionsNav}
-        activeColor="#005599"
-        topBarColor="#003366"
-      />
+      <PowerSolutionsNavbar />
       
-      <main className="flex-1 pt-24 md:pt-28">
+      <main className="flex-1 pt-20 md:pt-24">
         {children}
       </main>
 
