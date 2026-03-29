@@ -3,13 +3,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
     title: "Who We Are",
     content: "As an industrial and commercial power products supplier, general and industrial contractor and construction services integrator, 01 Electronics supports industries, local governments and public sector organizations through every step of their industrial development.",
     content2: "We, 01 Electronics, serving all over Egypt since 2006, and in UAE as of 2022, are Borri commercial and industrial UPS sole agents in Egypt, Elcos sole agents in Egypt for diesel gensets (generator sets), and panel builders and UPS distributor of Legrand.",
-    image: "/construction.png", // Using construction as a hero background for now
+    image: "/construction.png",
   },
   {
     title: "Our Vision",
@@ -69,19 +70,21 @@ export default function HeroCarousel() {
         </motion.div>
       </div>
 
-      {/* Custom Arrows as per user request (using images) */}
+      {/* Modern Arrows */}
       <button 
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 cursor-pointer transition-transform hover:scale-110 active:scale-95 z-40"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 cursor-pointer transition-all hover:bg-primary bg-white/5 border border-white/10 p-3 md:p-4 rounded-full backdrop-blur-md z-40 group shadow-lg"
+        aria-label="Previous Slide"
       >
-        <Image src="/arrow-left.png" alt="Prev" width={50} height={50} className="w-10 h-10 md:w-16 md:h-16" />
+        <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-white group-hover:scale-110 transition-transform" />
       </button>
 
       <button 
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 cursor-pointer transition-transform hover:scale-110 active:scale-95 z-40"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 cursor-pointer transition-all hover:bg-primary bg-white/5 border border-white/10 p-3 md:p-4 rounded-full backdrop-blur-md z-40 group shadow-lg"
+        aria-label="Next Slide"
       >
-        <Image src="/arrow-right.png" alt="Next" width={50} height={50} className="w-10 h-10 md:w-16 md:h-16" />
+        <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-white group-hover:scale-110 transition-transform" />
       </button>
     </div>
   );

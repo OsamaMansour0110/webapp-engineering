@@ -19,14 +19,18 @@ export default function Footer() {
         <div className="space-y-6">
           <h3 className="text-2xl font-bold font-serif text-white tracking-widest uppercase mb-8 inline-block border-b-2 border-primary pb-2">Important Links</h3>
           <ul className="space-y-3">
-            {["Power", "Construction", "Software"].map((link) => (
-              <li key={link} className="group flex items-center gap-2">
+            {[
+              { name: "Power", path: "/power-solutions" },
+              { name: "Construction", path: "/construction-solutions" },
+              { name: "Software", path: "/software-solutions" }
+            ].map((link) => (
+              <li key={link.name} className="group flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary" />
                 <a 
-                  href={`#${link}`} 
+                  href={link.path} 
                   className="text-[#a0a0a0] group-hover:text-primary transition-colors duration-300 text-lg"
                 >
-                  {link}
+                  {link.name}
                 </a>
               </li>
             ))}
