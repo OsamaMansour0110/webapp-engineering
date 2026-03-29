@@ -1,24 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0096ff;
+  --color-primary: #0077cc;
   --color-accent: #00d2ff;
-  --color-background: #000000;
-  --color-card: #121212;
-  --color-text: #ffffff;
-  --color-text-muted: #a0a0a0;
+  
+  --color-bg-main: var(--background);
+  --color-text-main: var(--foreground);
+  --color-text-muted: var(--muted);
+  --color-card-bg: var(--card);
 
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
 }
 
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --muted: #666666;
+  --card: #f8fafc;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted: #94a3b8;
+  --card: #0f172a;
+}
+
 @layer base {
   body {
-    @apply bg-black text-white font-sans antialiased;
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply font-sans antialiased transition-colors duration-500 overflow-x-hidden;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-serif font-bold;
+    color: var(--foreground);
   }
 }
 
@@ -28,17 +47,24 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.glass-light {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+}
+
 .text-gradient {
   background: linear-gradient(to right, var(--color-primary), var(--color-accent));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @apply transition-all duration-300;
 }
 
 .card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px -10px rgba(0, 150, 255, 0.3);
+  @apply -translate-y-2 shadow-xl;
 }

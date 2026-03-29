@@ -3,21 +3,21 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-16 border-t border-white/5">
+    <footer className="bg-[var(--background)] text-[var(--foreground)] py-16 border-t border-black/5 dark:border-white/10 transition-colors duration-500">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
         {/* Company Overview */}
         <div className="space-y-6">
-          <h3 className="text-2xl font-bold font-serif text-white tracking-widest uppercase mb-8 inline-block border-b-2 border-primary pb-2">Company Overview</h3>
-          <p className="text-[#a0a0a0] leading-relaxed text-sm md:text-base">
-            01 Electronics is a leading power solution provider, general and industrial contractor and construction services integrator. 
-            01 Electronics enables your industry transformation with power and energy solutions that include UPSs, generators and solar panels. 
+          <h3 className="text-2xl font-bold font-serif text-[var(--foreground)] tracking-widest uppercase mb-8 inline-block border-b-2 border-primary pb-2">Company Overview</h3>
+          <p className="text-[var(--muted)] leading-relaxed text-sm md:text-base">
+            01 Electronics is a leading power solution provider, general and industrial contractor and construction services integrator.
+            01 Electronics enables your industry transformation with power and energy solutions that include UPSs, generators and solar panels.
             We also provide your business/industry with the construction and development services needed.
           </p>
         </div>
 
         {/* Important Links */}
         <div className="space-y-6">
-          <h3 className="text-2xl font-bold font-serif text-white tracking-widest uppercase mb-8 inline-block border-b-2 border-primary pb-2">Important Links</h3>
+          <h3 className="text-2xl font-bold font-serif text-[var(--foreground)] tracking-widest uppercase mb-8 inline-block border-b-2 border-primary pb-2">Important Links</h3>
           <ul className="space-y-3">
             {[
               { name: "Power", path: "/power-solutions" },
@@ -26,9 +26,9 @@ export default function Footer() {
             ].map((link) => (
               <li key={link.name} className="group flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary" />
-                <a 
-                  href={link.path} 
-                  className="text-[#a0a0a0] group-hover:text-primary transition-colors duration-300 text-lg"
+                <a
+                  href={link.path}
+                  className="text-[var(--muted)] group-hover:text-primary transition-colors duration-300 text-lg"
                 >
                   {link.name}
                 </a>
@@ -39,12 +39,12 @@ export default function Footer() {
 
         {/* Contact Us */}
         <div className="space-y-6">
-          <h3 className="text-2xl font-bold font-serif text-white tracking-widest uppercase mb-8 inline-block border-b-2 border-primary pb-2">Contact Us</h3>
-          
+          <h3 className="text-2xl font-bold font-serif text-[var(--foreground)] tracking-widest uppercase mb-8 inline-block border-b-2 border-primary pb-2">Contact Us</h3>
+
           <div className="space-y-6">
             <div className="flex gap-4 items-start group">
               <MapPin className="text-primary mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <div className="text-[#a0a0a0] text-sm md:text-base">
+              <div className="text-[var(--muted)] text-sm md:text-base">
                 <p>130, The Industrial Zone, New Cairo, Cairo, Egypt</p>
                 <p>Phase 1 - E07 - F15 - Hamriya Free Zone - Sharjah - United Arab Emirates</p>
               </div>
@@ -52,7 +52,7 @@ export default function Footer() {
 
             <div className="flex gap-4 items-start group">
               <Phone className="text-primary mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <div className="text-[#a0a0a0] text-sm md:text-base space-y-1">
+              <div className="text-[var(--muted)] text-sm md:text-base space-y-1">
                 <p>+20225723501</p>
                 <p>+201002329153</p>
                 <p>+971525164400</p>
@@ -61,7 +61,7 @@ export default function Footer() {
 
             <div className="flex gap-4 items-start group">
               <Mail className="text-primary mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <p className="text-[#a0a0a0] text-sm md:text-base group-hover:text-white transition-colors">
+              <p className="text-[var(--muted)] text-sm md:text-base group-hover:text-primary transition-colors">
                 info@01electronics.net
               </p>
             </div>

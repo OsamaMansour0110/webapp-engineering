@@ -33,59 +33,84 @@ export default function HeroCarousel() {
   const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden mt-[70px]">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0"
+    <div className="w-full max-w-[1700px] mx-auto px-2 md:px-10 mt-[80px] md:mt-[100px] mb-10 md:mb-20">
+      <div className="flex items-center justify-between gap-2 md:gap-12">
+        
+        {/* Left Arrow - Hidden on mobile */}
+        <button 
+          onClick={prevSlide}
+          className="hidden lg:flex cursor-pointer transition-all hover:scale-110 active:scale-95 bg-white dark:bg-slate-800 border border-black/5 dark:border-white/10 p-4 md:p-5 rounded-full shadow-lg group shrink-0"
+          aria-label="Previous Slide"
         >
-          <Image
-            src={slides[current].image}
-            alt="Hero Background"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
-        </motion.div>
-      </AnimatePresence>
+          <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-black dark:text-white group-hover:text-primary transition-colors" />
+        </button>
 
-      <div className="relative h-full flex items-center justify-center container mx-auto px-6">
-        <motion.div 
-          key={`content-${current}`}
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="glass p-8 md:p-12 rounded-lg max-w-2xl border-l-[6px] border-primary"
-        >
-          <h2 className="text-4xl font-serif font-bold mb-6 text-primary">{slides[current].title}</h2>
-          <div className="space-y-4 text-white/90 leading-relaxed text-lg">
-            <p className="font-semibold">{slides[current].content}</p>
-            <p className="text-sm md:text-base opacity-80">{slides[current].content2}</p>
+        {/* Framing Container */}
+        <div className="relative flex-1 h-[500px] md:h-[680px] overflow-hidden rounded-[2rem] md:rounded-[3rem] shadow-xl md:shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-black/5">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={slides[current].image}
+                alt="Hero Background"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-white/5 dark:bg-black/30 md:bg-transparent" />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Responsive Content Box */}
+          <div className="relative h-full flex items-center px-4 md:px-20">
+            <motion.div 
+              key={`content-${current}`}
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="glass-light dark:glass p-6 md:p-16 rounded-[1.5rem] md:rounded-[2.5rem] max-w-2xl w-full"
+            >
+              <h2 className="text-3xl md:text-5xl font-serif font-bold mb-3 md:mb-4 text-primary leading-tight">
+                {slides[current].title}
+              </h2>
+              
+              <div className="w-20 md:w-32 h-[2px] bg-primary/40 mb-4 md:mb-8" />
+              
+              <div className="space-y-4 md:space-y-6 text-slate-800 dark:text-white/90 leading-relaxed text-base md:text-xl">
+                <p className="font-semibold">{slides[current].content}</p>
+                <p className="text-xs md:text-base opacity-70 italic font-sans">
+                  {slides[current].content2}
+                </p>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
+
+        {/* Right Arrow - Hidden on mobile */}
+        <button 
+          onClick={nextSlide}
+          className="hidden lg:flex cursor-pointer transition-all hover:scale-110 active:scale-95 bg-white dark:bg-slate-800 border border-black/5 dark:border-white/10 p-4 md:p-5 rounded-full shadow-lg group shrink-0"
+          aria-label="Next Slide"
+        >
+          <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-black dark:text-white group-hover:text-primary transition-colors" />
+        </button>
       </div>
 
-      {/* Modern Arrows */}
-      <button 
-        onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 cursor-pointer transition-all hover:bg-primary bg-white/5 border border-white/10 p-3 md:p-4 rounded-full backdrop-blur-md z-40 group shadow-lg"
-        aria-label="Previous Slide"
-      >
-        <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-white group-hover:scale-110 transition-transform" />
-      </button>
-
-      <button 
-        onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 cursor-pointer transition-all hover:bg-primary bg-white/5 border border-white/10 p-3 md:p-4 rounded-full backdrop-blur-md z-40 group shadow-lg"
-        aria-label="Next Slide"
-      >
-        <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-white group-hover:scale-110 transition-transform" />
-      </button>
+      {/* Mobile Arrows Placeholder (If needed) */}
+      <div className="flex lg:hidden justify-center gap-6 mt-6">
+        <button onClick={prevSlide} className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-md border border-black/5">
+          <ChevronLeft size={24} />
+        </button>
+        <button onClick={nextSlide} className="p-3 bg-white dark:bg-slate-800 rounded-full shadow-md border border-black/5">
+          <ChevronRight size={24} />
+        </button>
+      </div>
     </div>
   );
 }

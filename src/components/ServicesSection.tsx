@@ -25,24 +25,24 @@ const services = [
 export default function ServicesSection() {
   return (
     <section className="py-20 px-6 container mx-auto">
-      <h2 className="text-5xl font-serif font-bold text-center mb-16 text-white tracking-widest uppercase">Our Services</h2>
-      
+      <h2 className="text-5xl font-serif font-bold text-center mb-16 text-slate-800 dark:text-white tracking-widest uppercase transition-colors">Our Services</h2>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {services.map((service, index) => (
-          <Link 
+          <Link
             key={index}
             href={service.link}
             className="group relative h-[500px] rounded-2xl overflow-hidden glass transition-all duration-500 hover:scale-[1.02] border border-white/5 shadow-2xl block"
           >
-            <Image 
-              src={service.image} 
-              alt={service.title} 
-              fill 
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
             {/* Overlay gradient */}
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
-            
+
             {/* Center Title Box */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="glass px-10 py-5 rounded-lg border border-white/10 backdrop-blur-md shadow-lg group-hover:bg-primary/10 group-hover:border-primary/40 transition-all duration-500">
